@@ -34,7 +34,13 @@
 @layer components {
   .mainContainer {
     @apply flex flex-col overflow-y-auto pb-10;
-    height: calc(100% - 40px);
+    height: calc(100% - 4rem);
+  }
+
+  @media (min-width: 768px) {
+    .mainContainer {
+      height: calc(100% - 2.5rem);
+    }
   }
 
   .infoText {

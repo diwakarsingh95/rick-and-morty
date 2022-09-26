@@ -1,9 +1,16 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 const Header = () => {
   return (
-    <header className='fixed top-0 flex h-10 w-full items-center justify-center bg-black text-white'>
-      <nav className='flex gap-5 text-lg tracking-wide'>
+    <header className='fixed top-0 flex h-16 w-full flex-col items-center justify-center bg-black px-2 text-white md:h-10 md:flex-row md:px-5'>
+      <Link href='/'>
+        <a className='relative left-0 flex md:absolute md:left-5'>
+          <Image src='/logo.jpg' alt='Rick and Morty' width={30} height={30} />
+        </a>
+      </Link>
+
+      <nav className='flex justify-center gap-5 text-lg tracking-wide md:flex-1'>
         <Link href='/characters'>
           <a className='transition hover:border-b'>Chracters</a>
         </Link>

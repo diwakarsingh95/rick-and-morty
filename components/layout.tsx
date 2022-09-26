@@ -19,7 +19,7 @@ const Layout = ({ children, title, description }: Props) => {
 
       <Header />
 
-      <main className='mt-10'>
+      <main className='md:mt-10 mt-16'>
         <div className='fixed flex h-full w-full flex-col overflow-y-auto bg-[#22222e]'>
           <div className='fixed z-[-1] h-screen w-screen overflow-hidden opacity-30'>
             <Image
