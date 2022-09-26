@@ -1,41 +1,31 @@
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import Layout from '../components/layout'
-import PaginationButton from '../components/paginationButton'
+import TopBar from '../components/topBar'
 import { GET_LOCATIONS } from '../gql/locations.gql'
 import { addApolloState, initializeApollo } from '../lib/apollo-client'
 
 interface Props {
-  locations: Locations
+  locations: {
+    info: Info
+    results: Location[]
+  }
 }
 
 const Locations = ({ locations }: Props) => {
-  const { query } = useRouter()
   const { info, results } = locations
 
   return (
     <Layout
       title='Locations - Rick & Morty'
-      description='This page has informatin about all the locations shown in Rick and Morty.'
+      description='This page has information about all the locations shown in Rick and Morty.'
     >
       <h1 className='py-4 text-center text-2xl font-bold tracking-widest md:text-3xl'>
         Locations
       </h1>
       {results && !!results.length && (
         <div className='px-5 pt-2 pb-0 md:px-10'>
-          <section className='relative mb-5 flex flex-col items-center md:flex-row'>
-            <p className='infoText md:justify-start'>
-              Showing {info.count} results
-            </p>
-            <p className='infoText'>
-              Page {query.page ? query.page : 1} / {info.pages}
-            </p>
-            <div className='infoText md:justify-end'>
-              <PaginationButton page={info.prev} title='Prev' />
-              <PaginationButton page={info.next} title='Next' />
-            </div>
-          </section>
+          <TopBar {...info} />
 
           <section className='flex flex-col gap-5'>
             {results.map((location) => (
