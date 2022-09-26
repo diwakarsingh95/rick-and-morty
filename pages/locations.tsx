@@ -1,10 +1,10 @@
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Layout from '../../components/layout'
-import PaginationButton from '../../components/paginationButton'
-import { GET_LOCATIONS } from '../../gql/locations.gql'
-import { addApolloState, initializeApollo } from '../../lib/apollo-client'
+import Layout from '../components/layout'
+import PaginationButton from '../components/paginationButton'
+import { GET_LOCATIONS } from '../gql/locations.gql'
+import { addApolloState, initializeApollo } from '../lib/apollo-client'
 
 interface Props {
   locations: Locations
