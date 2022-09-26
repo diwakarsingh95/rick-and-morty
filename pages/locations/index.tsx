@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import Layout from '../../components/layout'
 import PaginationButton from '../../components/paginationButton'
 import { GET_LOCATIONS } from '../../gql/locations.gql'
-import client from '../../lib/apollo-client'
+import { addApolloState, initializeApollo } from '../../lib/apollo-client'
 
 interface Props {
   locations: Locations
@@ -80,16 +80,17 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   query
 }) => {
   const { page } = query
-  const { data } = await client.query({
+  const apolloClient = initializeApollo()
+  const { data } = await apolloClient.query({
     query: GET_LOCATIONS,
     variables: {
       page: page ? parseInt(page as string) : undefined
     }
   })
 
-  return {
+  return addApolloState(apolloClient, {
     props: {
       locations: data.locations
     }
-  }
+  })
 }
