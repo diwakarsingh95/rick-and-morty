@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import PaginationButton from './paginationButton'
 
 interface Props {
@@ -9,13 +8,17 @@ interface Props {
 }
 
 const TopBar = ({ count, pages, prev, next }: Props) => {
-  const { query, pathname } = useRouter()
+  const { search, pathname } =
+    typeof window !== 'undefined'
+      ? window.location
+      : { search: '', pathname: '' }
+  const page = new URLSearchParams(search).get('page')
 
   return (
     <section className='relative mb-5 flex flex-col items-center md:flex-row'>
       <p className='infoText md:justify-start'>Showing {count} results</p>
       <p className='infoText'>
-        Page {query.page ? query.page : 1} / {pages}
+        Page {page ? page : 1} / {pages}
       </p>
       <div className='infoText md:justify-end'>
         <PaginationButton path={pathname} page={prev} title='Prev' />

@@ -1,9 +1,9 @@
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
-import Layout from '../components/layout'
-import TopBar from '../components/topBar'
-import { GET_LOCATIONS } from '../gql/locations.gql'
-import { addApolloState, initializeApollo } from '../lib/apollo-client'
+import Layout from '../../components/layout'
+import TopBar from '../../components/topBar'
+import { GET_LOCATIONS } from '../../gql/locations.gql'
+import { addApolloState, initializeApollo } from '../../lib/apollo-client'
 
 interface Props {
   locations: {
@@ -66,10 +66,22 @@ const Locations = ({ locations }: Props) => {
 
 export default Locations
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({
-  query
-}) => {
-  const { page } = query
+export const getStaticPaths: GetStaticPaths = () => {
+  return {
+    paths: [
+      {
+        params: { page: ['?page=1'] }
+      }
+    ],
+    fallback: 'blocking'
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const queryArray = params?.page || []
+  const queryString = queryArray[queryArray.length - 1] || ''
+  const page = new URLSearchParams(queryString).get('page')
+
   const apolloClient = initializeApollo()
   const { data } = await apolloClient.query({
     query: GET_LOCATIONS,
@@ -81,6 +93,26 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   return addApolloState(apolloClient, {
     props: {
       locations: data.locations
-    }
+    },
+    revalidate: 3600
   })
 }
+
+// export const getServerSideProps: GetServerSideProps<Props> = async ({
+//   query
+// }) => {
+//   const { page } = query
+//   const apolloClient = initializeApollo()
+//   const { data } = await apolloClient.query({
+//     query: GET_LOCATIONS,
+//     variables: {
+//       page: page ? parseInt(page as string) : undefined
+//     }
+//   })
+
+//   return addApolloState(apolloClient, {
+//     props: {
+//       locations: data.locations
+//     }
+//   })
+// }
