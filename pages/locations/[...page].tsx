@@ -1,6 +1,7 @@
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import Layout from '../../components/layout'
+import NoData from '../../components/noData'
 import TopBar from '../../components/topBar'
 import { GET_LOCATIONS } from '../../gql/locations.gql'
 import { addApolloState, initializeApollo } from '../../lib/apollo-client'
@@ -23,7 +24,7 @@ const Locations = ({ locations }: Props) => {
       <h1 className='py-4 text-center text-2xl font-bold tracking-widest md:text-3xl'>
         Locations
       </h1>
-      {results && !!results.length && (
+      {results && !!results.length ? (
         <div className='px-5 pt-2 pb-0 md:px-10'>
           <TopBar {...info} />
 
@@ -59,6 +60,8 @@ const Locations = ({ locations }: Props) => {
             ))}
           </section>
         </div>
+      ) : (
+        <NoData />
       )}
     </Layout>
   )
@@ -97,22 +100,3 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     revalidate: 3600
   })
 }
-
-// export const getServerSideProps: GetServerSideProps<Props> = async ({
-//   query
-// }) => {
-//   const { page } = query
-//   const apolloClient = initializeApollo()
-//   const { data } = await apolloClient.query({
-//     query: GET_LOCATIONS,
-//     variables: {
-//       page: page ? parseInt(page as string) : undefined
-//     }
-//   })
-
-//   return addApolloState(apolloClient, {
-//     props: {
-//       locations: data.locations
-//     }
-//   })
-// }

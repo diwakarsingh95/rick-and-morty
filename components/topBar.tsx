@@ -8,13 +8,13 @@ interface Props {
 }
 
 const TopBar = ({ count, pages, prev, next }: Props) => {
-  const { search, pathname } =
-    typeof window !== 'undefined'
-      ? window.location
-      : { search: '', pathname: '' }
+  const isBrowser = typeof window !== 'undefined'
+  const { search, pathname } = isBrowser
+    ? window.location
+    : { search: '', pathname: '' }
   const page = new URLSearchParams(search).get('page')
 
-  return (
+  return pathname ? (
     <section className='relative mb-5 flex flex-col items-center md:flex-row'>
       <p className='infoText md:justify-start'>Showing {count} results</p>
       <p className='infoText'>
@@ -25,7 +25,7 @@ const TopBar = ({ count, pages, prev, next }: Props) => {
         <PaginationButton path={pathname} page={next} title='Next' />
       </div>
     </section>
-  )
+  ) : null
 }
 
 export default TopBar
