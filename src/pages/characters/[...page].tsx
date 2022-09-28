@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { GET_CHARACTERS } from '../../gql/chracters.gql'
+import { GET_CHARACTERS } from '../../gql/characters.gql'
 import Layout from '../../components/layout'
 import TopBar from '../../components/topBar'
 import { addApolloState, initializeApollo } from '../../lib/apollo-client'

@@ -22,7 +22,7 @@ const GET_CHARACTERS = gql`
 `
 
 const GET_CHARACTER = gql`
-  query getCharacter($id: ID) {
+  query getCharacter($id: ID!) {
     character(id: $id) {
       id
       name
