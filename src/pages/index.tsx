@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <Layout
       title='Home - Rick & Morty'
-      description='Your one stop for all info about Rick and Morty!'
+      description='Your one stop for all the information about Rick and Morty!'
     >
       <div className='flex flex-col items-center p-6 text-white'>
         <h1 className='text-2xl font-bold tracking-widest md:text-4xl'>
