@@ -9,8 +9,13 @@ interface Props {
 }
 
 const TopBar = ({ count, pages, prev, next }: Props) => {
-  const { query, pathname } = useRouter()
-  const page = query.page
+  let { query, pathname } = useRouter()
+  let page = query.page
+
+  if (pathname.includes('locations')) {
+    page = page?.[0].split('=')[1]
+    pathname = '/locations'
+  }
 
   return (
     <section className='relative mb-5 flex flex-col items-center md:flex-row'>
