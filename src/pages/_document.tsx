@@ -11,14 +11,29 @@ export default function Document() {
         <link rel='shortcut icon' href='/favicon.ico' />
 
         <meta name='twitter:card' content='summary' />
-        <meta name='twitter:url' content='https://rick-and-morty-show.vercel.app' />
+        <meta
+          name='twitter:url'
+          content='https://rick-and-morty-show.vercel.app'
+        />
         <meta name='twitter:title' content='Rick and Morty Show' />
-        <meta name='twitter:description' content='Your one stop for all information about Rick and Morty show.' />
+        <meta
+          name='twitter:description'
+          content='Your one stop for all information about Rick and Morty show.'
+        />
         <meta
           name='twitter:image'
           content='https://rick-and-morty-show.vercel.app/icon-192x192.png'
         />
         <meta name='twitter:creator' content='@d_coder_' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='Rick and Morty Show' />
+        <meta property='og:description' content='Your one stop for all information about Rick and Morty show.' />
+        <meta property='og:site_name' content='Rick and Morty Show' />
+        <meta property='og:url' content='https://rick-and-morty-show.vercel.app' />
+        <meta
+          property='og:image'
+          content='https://rick-and-morty-show.vercel.app/icon-192x192.png'
+        />
 
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link
