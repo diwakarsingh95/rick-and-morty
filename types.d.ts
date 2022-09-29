@@ -23,5 +23,11 @@ interface Character {
   location: Location
   origin: Location
   image
-  episode: Episode
+  episode: Episode[]
+}
+
+interface Episode {
+  id: string
+  name: string
+  episode: string
 }

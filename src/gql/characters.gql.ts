@@ -31,9 +31,11 @@ const GET_CHARACTER = gql`
       gender
       location {
         name
+        dimension
       }
       origin {
         name
+        dimension
       }
       image
       episode {

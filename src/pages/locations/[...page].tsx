@@ -49,9 +49,7 @@ const Locations = ({ locations }: Props) => {
                         key={resident.id}
                         href={`/characters/${resident.id}`}
                       >
-                        <a className='rounded-3xl border px-2 py-1 hover:border-transparent hover:bg-white hover:text-black'>
-                          {resident.name}
-                        </a>
+                        <a className='chip'>{resident.name}</a>
                       </Link>
                     ))}
                   </div>
