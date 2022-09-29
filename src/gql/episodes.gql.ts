@@ -23,4 +23,20 @@ const GET_EPISODES = gql`
   }
 `
 
-export { GET_EPISODES }
+const GET_EPISODE = gql`
+  query getEpisode($id: ID!) {
+    episode(id: $id) {
+      id
+      name
+      air_date
+      episode
+      characters {
+        id
+        name
+        image
+      }
+    }
+  }
+`
+
+export { GET_EPISODES, GET_EPISODE }

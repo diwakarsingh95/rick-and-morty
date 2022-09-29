@@ -27,7 +27,7 @@ const Episodes = ({ episodes }: Props) => {
       {results && !!results.length ? (
         <div className='px-5 pt-2 pb-0 md:px-10'>
           <TopBar {...info} />
-          <section className='flex flex-wrap justify-center gap-5 px-5 pt-2'>
+          <section className='flex flex-wrap gap-5'>
             {results.map((episode) => (
               <EpisodeCard key={episode.id} data={episode} />
             ))}

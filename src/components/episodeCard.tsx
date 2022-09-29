@@ -9,7 +9,7 @@ const EpisodeCard = ({ data }: Props) => {
     <Link href={`/episodes/${data.id}`}>
       <div
         key={data.id}
-        className='gap-2 rounded-lg bg-black px-5 py-2 tracking-wide md:px-10 md:py-5'
+        className='cursor-pointer gap-2 rounded-lg bg-black px-5 py-2 tracking-wide md:px-10 md:py-5'
       >
         <h2 className='text-xl font-medium'>
           #{data.id} {data.episode}

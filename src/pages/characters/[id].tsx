@@ -14,7 +14,7 @@ const Character = ({ character }: Props) => {
   return (
     <Layout
       title={`${character.name} - Rick & Morty`}
-      description={`This page has all information about ${character.name}.`}
+      description={`This page has all information about the character: ${character.name}.`}
     >
       {character ? (
         <>
