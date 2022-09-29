@@ -22,7 +22,7 @@ const Episodes = ({ episodes }: Props) => {
       description='This page has information about all tne epsiodes in Rick and Morty show.'
     >
       <h1 className='py-4 text-center text-2xl font-bold tracking-widest md:text-3xl'>
-        Epsidoes
+        Episodes
       </h1>
       {results && !!results.length ? (
         <div className='px-5 pt-2 pb-0 md:px-10'>
