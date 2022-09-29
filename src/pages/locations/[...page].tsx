@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
-import Link from 'next/link'
 import Layout from '../../components/layout'
+import LocationCard from '../../components/locationCard'
 import NoData from '../../components/noData'
 import TopBar from '../../components/topBar'
 import { GET_LOCATIONS } from '../../gql/locations.gql'
@@ -30,31 +30,7 @@ const Locations = ({ locations }: Props) => {
 
           <section className='flex flex-col gap-5'>
             {results.map((location) => (
-              <div
-                key={location.id}
-                className='gap-2 rounded-lg bg-black px-5 py-2 tracking-wide md:px-10 md:py-5'
-              >
-                <h2 className='text-xl font-medium'>{location.name}</h2>
-                <div className='font-light'>
-                  <p>Location Type: {location.type}</p>
-                  <p>Dimension: {location.dimension}</p>
-                </div>
-                <div className=''>
-                  <p className='pb-1'>
-                    Residents: {!location.residents.length && 'NA'}
-                  </p>
-                  <div className='flex flex-wrap gap-1'>
-                    {location.residents.map((resident) => (
-                      <Link
-                        key={resident.id}
-                        href={`/characters/${resident.id}`}
-                      >
-                        <a className='chip'>{resident.name}</a>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <LocationCard key={location.id} data={location} />
             ))}
           </section>
         </div>
