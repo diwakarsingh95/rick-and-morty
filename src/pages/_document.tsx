@@ -10,10 +10,10 @@ export default function Document() {
         <meta name='theme-color' content='#000000' />
         <link rel='shortcut icon' href='/favicon.ico' />
 
-        <meta name='twitter:card' content='One stop for all information about Rick and Morty show.' />
+        <meta name='twitter:card' content='summary' />
         <meta name='twitter:url' content='https://rick-and-morty-show.vercel.app' />
         <meta name='twitter:title' content='Rick and Morty Show' />
-        <meta name='twitter:description' content='Rick and Morty information website.' />
+        <meta name='twitter:description' content='Your one stop for all information about Rick and Morty show.' />
         <meta
           name='twitter:image'
           content='https://rick-and-morty-show.vercel.app/icon-192x192.png'
