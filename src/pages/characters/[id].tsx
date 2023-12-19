@@ -63,7 +63,7 @@ const Character = ({ character }: Props) => {
               <p className='font-medium'>Episodes Appeared In:</p>
               <div className='flex flex-wrap gap-2'>
                 {character.episode.map((episode) => (
-                  <Link key={episode.id} href={`/episodes/${episode.id}`}>
+                  <Link legacyBehavior key={episode.id} href={`/episodes/${episode.id}`}>
                     <a className='chip text-sm'>
                       <span className='font-medium'>{episode.episode}:</span>{' '}
                       <span>{episode.name}</span>

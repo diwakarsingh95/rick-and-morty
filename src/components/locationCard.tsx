@@ -18,7 +18,7 @@ const LocationCard = ({ data }: Props) => {
       <p className='pb-1'>Residents: {!data.residents.length && 'NA'}</p>
       <div className='flex flex-wrap gap-1'>
         {data.residents.map((resident) => (
-          <Link key={resident.id} href={`/characters/${resident.id}`}>
+          <Link legacyBehavior key={resident.id} href={`/characters/${resident.id}`}>
             <a className='chip'>{resident.name}</a>
           </Link>
         ))}

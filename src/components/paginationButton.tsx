@@ -8,7 +8,7 @@ interface Props {
 
 const PaginationButton = ({ path, page, title }: Props) => {
   return (
-    <Link href={`${path}?page=${page}`}>
+    <Link legacyBehavior href={`${path}?page=${page}`}>
       <a
         className={`paginationBtn ${
           !page && 'pointer-events-none border-gray-500 text-gray-500'

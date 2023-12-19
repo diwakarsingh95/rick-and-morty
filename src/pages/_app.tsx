@@ -8,8 +8,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ErrorBoundary>
         <Component {...pageProps} />
+        <SpeedInsights />
       </ErrorBoundary>
-      <SpeedInsights />
     </>
   );
 }

@@ -13,7 +13,8 @@ const TopBar = ({ count, pages, prev, next }: Props) => {
   let page = query.page
 
   if (pathname.includes('locations')) {
-    page = page?.[0].split('=')[1]
+    page = page?.[0].at(-1)
+    console.log("page", page)
     pathname = '/locations'
   }
 

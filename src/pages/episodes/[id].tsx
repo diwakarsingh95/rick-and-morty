@@ -36,7 +36,7 @@ const Episode = ({ episode }: Props) => {
                     title={character.name}
                     className='flex flex-col items-center'
                   >
-                    <Link href={`/characters/${character.id}`}>
+                    <Link legacyBehavior href={`/characters/${character.id}`}>
                       <a className='relative h-[100px] w-[100px] transition-transform duration-300 hover:scale-110'>
                         <Image
                           src={character.image}

@@ -23,7 +23,7 @@ const EpisodeCard = ({ data }: Props) => {
         </p>
         <div className='flex flex-wrap gap-1'>
           {data.characters.map((character) => (
-            <Link key={character.id} href={`/characters/${character.id}`}>
+            <Link legacyBehavior key={character.id} href={`/characters/${character.id}`}>
               <a className='chip'>{character.name}</a>
             </Link>
           ))}

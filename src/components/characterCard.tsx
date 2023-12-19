@@ -8,7 +8,7 @@ interface Props {
 const CharacterCard = ({ data }: Props) => {
   const { name, gender, status, species, image } = data
   return (
-    <Link href={`/characters/${data.id}`}>
+    <Link legacyBehavior href={`/characters/${data.id}`}>
       <a className='group relative h-[250px] w-[250px] hover:bg-gray-600 '>
         <Image
           src={image}
