@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
+    "@vercel/speed-insights": "^1.0.2",
     "deepmerge": "^4.2.2",
     "graphql": "^16.6.0",
     "lodash.isequal": "^4.5.0",
